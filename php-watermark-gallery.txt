@@ -1,7 +1,5 @@
 #!/bin/bash
 sudo yum install httpd php php-gd -y
-sudo httpd start
-sudo chkconfig httpd on
 sudo service httpd start
 sudo chkconfig httpd on
 cd /home/ec2-user/
