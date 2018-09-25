@@ -1,0 +1,9 @@
+#!/bin/bash
+sudo yum install httpd -y
+sudo service httpd start
+sudo chkconfig httpd on
+cd /home/ec2-user/
+sudo wget https://github.com/tinkrbay/staticwebsite/archive/master.zip
+sudo unzip master.zip
+sudo mv staticwebsite-master/* /var/www/html/
+sudo service httpd restart
