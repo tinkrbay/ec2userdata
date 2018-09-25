@@ -5,5 +5,7 @@ sudo chkconfig httpd on
 cd /home/ec2-user/
 sudo wget https://github.com/tinkrbay/staticwebsite/archive/master.zip
 sudo unzip master.zip
-sudo mv staticwebsite-master/* /var/www/html/
+cd /var/www/html/
+sudo mkdir staticwebsite
+sudo mv /home/ec2-user/staticwebsite-master/* /var/www/html/staticwebsite/
 sudo service httpd restart
