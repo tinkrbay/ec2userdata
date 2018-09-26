@@ -1,0 +1,27 @@
+#!/bin/bash
+sudo yum install httpd php php-gd -y
+sudo service httpd start
+sudo chkconfig httpd on
+sudo cat >/var/www/html/index.html <<'EOF'
+<html>
+    <body>
+        <h1>HOME PAGE AT /VAR/WWW/HTML</h1>
+    </body>
+</html>
+EOF
+cd /home/ec2-user/
+sudo wget https://github.com/tinkrbay/staticwebsite/archive/master.zip
+sudo unzip master.zip
+sudo rm -rf master.zip
+cd /var/www/html/
+sudo mkdir staticwebsite
+sudo mv /home/ec2-user/staticwebsite-master/* /var/www/html/staticwebsite/
+cd /home/ec2-user/
+sudo wget https://github.com/tinkrbay/php-watermark-gallery/archive/master.zip
+sudo unzip master.zip
+cd /var/www/html/
+sudo mkdir php-watermark-gallery
+sudo mv /home/ec2-user/php-watermark-gallery-master/* /var/www/html/php-watermark-gallery/
+sudo chmod -R 777 /var/www/html
+sudo chown -R apache.apache /var/www/html
+sudo service httpd restart
