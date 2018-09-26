@@ -19,6 +19,7 @@ sudo mv /home/ec2-user/staticwebsite-master/* /var/www/html/staticwebsite/
 cd /home/ec2-user/
 sudo wget https://github.com/tinkrbay/php-watermark-gallery/archive/master.zip
 sudo unzip master.zip
+sudo rm -rf master.zip
 cd /var/www/html/
 sudo mkdir php-watermark-gallery
 sudo mv /home/ec2-user/php-watermark-gallery-master/* /var/www/html/php-watermark-gallery/
